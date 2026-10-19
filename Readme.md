@@ -138,15 +138,3 @@ Le site s'adapte aux différentes tailles d'écran.
 Sur ordinateur, le produit et les options sont affichés côte à côte.
 
 Sur téléphone, les éléments sont affichés les uns sous les autres.
-
-## 👨‍💻 Auteur
-
-Nom : À compléter
-
-Formation : À compléter
-
-Année : 2026
-
-## 📜 Licence
-
-Ce projet est réalisé dans un cadre pédagogique.
