@@ -134,4 +134,50 @@ img {
   font-size: 13px;
   color: #7a7060;
 }
+
+
+.container_fin{
+  display: flex;
+  background-color: #ffffff;
+  justify-content: space-between;
+  padding: 32px 64px;
+
+  
+}
  
+.price_total .text {
+  font-size: 13px;
+  color: #7a7060;
+}
+ 
+.price_total .price {
+  font-size: 30px;
+  margin-top: 4px;
+}
+ 
+.btnSend {
+  background-color: #3b4f35;
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 16px;
+  padding: 18px 72px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+}
+ 
+.btnSend:hover {
+  background-color: #2c3c28;
+}
+ 
+
+
+/* footer */
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 28px 64px;
+  font-size: 12px;
+  color: #7a7060;
+}
