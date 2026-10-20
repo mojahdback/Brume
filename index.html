@@ -1,39 +1,168 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Coffee Shop Configurator</title>
-</head>
-<body>
-
+  </head>
+  <body>
     <header class="header">
-        <p class="item1">Du grain à votre tasse. Un café qui vous ressemble.</p>
-        <div class="item2">
-             <img class="logo" src="assetes/icons/Brume.png" alt="Cup of Coffee">
-             <h1>BRUME</h1>
-        </div>
-       
+      <p class="item1">Du grain à votre tasse. Un café qui vous ressemble.</p>
+      <div class="item2">
+        <img class="logo" src="assetes/icons/Brume.png" alt="Cup of Coffee" />
+        <h1>BRUME</h1>
+      </div>
 
-        <nav class="navBar">
-            <a href="">L’atelier café</a>
-            <a href="">Notre savoir-faire</a>
-            <a href="">Besoin d’aide ?</a>
-        </nav>
-        <div class="item3">
-             <img class="logo" src="assetes/icons/Vector.png" alt="Vector">
-             <p>0</p>
-        </div>
-       
+      <nav class="navBar">
+        <a href="">L’atelier café</a>
+        <a href="">Notre savoir-faire</a>
+        <a href="">Besoin d’aide ?</a>
+      </nav>
+      <div class="item3">
+        <img class="logo" src="assetes/icons/Vector.png" alt="Vector" />
+        <p>0</p>
+      </div>
     </header>
 
-    <main>
+    <main class="main">
+      <section class="container">
+        <div class="picture">
+          <div class="hero1">
+            <span>LE CAFÉ, À VOTRE FAÇON</span>
+            <p>01 / 04</p>
+          </div>
 
+          <img class="img" src="assetes/images/Cafe.png" alt="Cup of Coffee" />
+          <p class="item1">Un petit rituel. Beaucoup de vous.</p>
+          <p class="item2">ESPRESSO · M · AVOINE · CARAMEL</p>
+          <div class="hero2">
+            <p>Torréfié avec soin</p>
+            <p>Préparé à la demande</p>
+          </div>
+        </div>
+        <div class="info">
+          <div class="hero1">
+            <span class="item1">01 Personnaliser</span>
+            <span class="item2">—</span>
+            <span class="item3">02 Récapitulatif</span>
+          </div>
+
+          <div class="hero2">
+            <p class="item1">VOTRE COFFEE SHOP, AUTREMENT.</p>
+
+            <h1 class="item2">Votre pause,<br />votre signature.</h1>
+
+            <p class="item3">
+              Quelques envies, un café unique.<br />
+              À vous de composer la suite.
+            </p>
+          </div>
+
+          <div class="hero3">
+            <div class="part">
+              <h2 class="item1">01 La base</h2>
+              <span class="item2">Choix unique</span>
+            </div>
+
+            <div class="options">
+              <label class="option">
+                <input type="radio" name="base" value="Espresso" checked />
+                <span class="name">Espresso</span>
+                <span class="price">18,00 DH</span>
+              </label>
+
+              <label class="option">
+                <input type="radio" name="base" value="Filtre" />
+                <span class="name">Filtre</span>
+                <span class="price">16,00 DH</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="hero4">
+            <div class="parTop">
+              <h2 class="item1">02 La taille</h2>
+              <span class="item2">Choix unique</span>
+            </div>
+
+            <div class="options">
+              <label class="option">
+                <input type="radio" name="size" value="S · 150 ml" />
+                <span class="name">S · 150 ml</span>
+                <span class="price">Inclus</span>
+              </label>
+
+              <label class="option">
+                <input type="radio" name="size" value="M · 250 ml" checked />
+                <span class="name">M · 250 ml</span>
+                <span class="price">+ 4,00 DH</span>
+              </label>
+
+              <div class="options">
+                <label class="option">
+                  <input type="radio" name="size" value="L · 350 ml" />
+                  <span class="name">L · 350 ml</span>
+                  <span class="price">+ 8,00 DH</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="hero5">
+              <div class="parTop">
+                <h2 class="item1">03 Le lait</h2>
+                <span class="item2">Choix unique</span>
+              </div>
+
+              <div class="options">
+                <label class="option">
+                  <input type="radio" name="milk" value="Vache" />
+                  <span class="name">Vache</span>
+                  <span class="price">Inclus</span>
+                </label>
+
+                <label class="option">
+                  <input type="radio" name="milk" value="Avoine" checked />
+                  <span class="name">Avoine</span>
+                  <span class="price">+ 4,00 DH</span>
+                </label>
+
+                <label class="option">
+                  <input type="radio" name="milk" value="Amande" />
+                  <span class="name">Amande</span>
+                  <span class="price">+ 5,00 DH</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="hero6">
+              <div class="parTop">
+                <h2 class="item1">04 La touche en plus</h2>
+                <span class="item2">Plusieurs choix</span>
+              </div>
+
+              <div class="options">
+                <label class="option">
+                  <input type="checkbox" name="extra" value="Caramel" checked />
+                  <span class="name">Caramel</span>
+                  <span class="price">+ 3,00 DH</span>
+                </label>
+
+                <label class="option">
+                  <input type="checkbox" name="extra" value="Vanille" />
+                  <span class="name">Vanille</span>
+                  <span class="price">+ 3,00 DH</span>
+                </label>
+              </div>
+            </div>
+            <p class="note">
+              Le prix évolue selon vos choix. Vous pourrez les modifier au
+              récapitulatif.
+            </p>
+          </div>
+        </div>
+      </section>
     </main>
 
-    <footer>
-
-    </footer>
-    
-</body>
+    <footer></footer>
+  </body>
 </html>
