@@ -278,6 +278,95 @@ img {
 .btnSend:hover {
   background-color: #2c3c28;
 }
+
+/* page 2 factura */
+
+.badge {
+  align-self: flex-start;
+  background-color: #e8edda;
+  color: #3b4f35;
+  font-size: 13px;
+  padding: 8px 14px;
+  border-radius: 12px;
+}
+ 
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 14px;
+}
+ 
+.detail {
+  display: flex;
+  justify-content: space-between;
+}
+ 
+.total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #e6dfd1;
+  padding-top: 12px;
+}
+ 
+.total .item2 {
+  font-size: 24px;
+}
+ 
+.button {
+  background-color: #3b4f35;
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 16px;
+  padding: 16px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+}
+ 
+.confirmation {
+  display: flex;
+  gap: 8px;
+  font-size: 13px;
+  color: #7a7060;
+}
+ 
+.modifier {
+  color: #3b4f35;
+  text-decoration: underline;
+}
+
+.factoria .info{
+  background-color: #FFFFFF;
+  padding: 30px;
+  border-radius: 20px;
+  border: 1px solid #DFD5C8;
+}
+
+.parts{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.parts div > .item1 {
+  color: #30291F;
+  font-size: 20px;
+
+}
+.parts div > .item2 {
+  color: #796A59;
+  font-size: 12px;
+
+}
+
+.parts .part1{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
  
 
 

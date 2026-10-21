@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Coffee Shop Configurator</title>
-    <link rel="stylesheet" href="style/nativ.css">
+    <link rel="stylesheet" href="style/nativ.css" />
   </head>
   <body>
     <header class="header">
@@ -107,73 +107,88 @@
                 </label>
               </div>
             </div>
-          
-            </div>
-            <div class="hero5">
-              <div class="parTop">
-                <h2 class="item1">03 Le lait</h2>
-                <span class="item2">Choix unique</span>
-              </div>
-
-              <div class="options">
-                <label class="option">
-                  <input type="radio" name="milk" value="Vache" />
-                  <span class="name">Vache</span>
-                  <span class="price">Inclus</span>
-                </label>
-
-                <label class="option">
-                  <input type="radio" name="milk" value="Avoine" checked />
-                  <span class="name">Avoine</span>
-                  <span class="price">+ 4,00 DH</span>
-                </label>
-
-                <label class="option">
-                  <input type="radio" name="milk" value="Amande" />
-                  <span class="name">Amande</span>
-                  <span class="price">+ 5,00 DH</span>
-                </label>
-              </div>
-            </div>
-
-            <div class="hero6">
-              <div class="parTop">
-                <h2 class="item1">04 La touche en plus</h2>
-                <span class="item2">Plusieurs choix</span>
-              </div>
-
-              <div class="options">
-                <label class="option">
-                  <input type="checkbox" name="extra" value="Caramel" checked />
-                  <span class="name">Caramel</span>
-                  <span class="price">+ 3,00 DH</span>
-                </label>
-
-                <label class="option">
-                  <input type="checkbox" name="extra" value="Vanille" />
-                  <span class="name">Vanille</span>
-                  <span class="price">+ 3,00 DH</span>
-                </label>
-              </div>
-            </div>
-            <p class="note">
-              Le prix évolue selon vos choix. Vous pourrez les modifier au
-              récapitulatif.
-            </p>
           </div>
+          <div class="hero5">
+            <div class="parTop">
+              <h2 class="item1">03 Le lait</h2>
+              <span class="item2">Choix unique</span>
+            </div>
+
+            <div class="options">
+              <label class="option">
+                <input type="radio" name="milk" value="Vache" />
+                <span class="name">Vache</span>
+                <span class="price">Inclus</span>
+              </label>
+
+              <label class="option">
+                <input type="radio" name="milk" value="Avoine" checked />
+                <span class="name">Avoine</span>
+                <span class="price">+ 4,00 DH</span>
+              </label>
+
+              <label class="option">
+                <input type="radio" name="milk" value="Amande" />
+                <span class="name">Amande</span>
+                <span class="price">+ 5,00 DH</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="hero6">
+            <div class="parTop">
+              <h2 class="item1">04 La touche en plus</h2>
+              <span class="item2">Plusieurs choix</span>
+            </div>
+
+            <div class="options">
+              <label class="option">
+                <input type="checkbox" name="extra" value="Caramel" checked />
+                <span class="name">Caramel</span>
+                <span class="price">+ 3,00 DH</span>
+              </label>
+
+              <label class="option">
+                <input type="checkbox" name="extra" value="Vanille" />
+                <span class="name">Vanille</span>
+                <span class="price">+ 3,00 DH</span>
+              </label>
+            </div>
+          </div>
+          <p class="note">
+            Le prix évolue selon vos choix. Vous pourrez les modifier au
+            récapitulatif.
+          </p>
+        </div>
       </section>
 
-      <section class="container"   style="display: none;">
-        <div class="picture">
-          <div class="hero1">
-            <span>LE CAFÉ, À VOTRE FAÇON</span>
-            <p>01 / 04</p>
+      <section class="container factoria"  style="display: none;">
+        <div>
+          <div class="picture">
+            <div class="hero1">
+              <span>LE CAFÉ, À VOTRE FAÇON</span>
+              <p>01 / 04</p>
+            </div>
+
+            <img
+              class="img"
+              src="assetes/images/Cafe.png"
+              alt="Cup of Coffee"
+            />
+
+            <p class="item1">Un petit rituel. Beaucoup de vous.</p>
+            <p class="item2">ESPRESSO · M · AVOINE · CARAMEL</p>
           </div>
 
-          <img class="img" src="assetes/images/Cafe.png" alt="Cup of Coffee" />
-
-          <p class="item1">Un petit rituel. Beaucoup de vous.</p>
-          <p class="item2">ESPRESSO · M · AVOINE · CARAMEL</p>
+          <div class="parts">
+            <div class="part1">
+              <h2 class="item1">Votre café signature</h2>
+              <p class="item2">Espresso · M · Avoine · Caramel</p>
+            </div>
+            <div class="part2">
+              <a href="#" class="modifier">Modifier</a>
+            </div>
+          </div>
         </div>
 
         <div class="info">
@@ -236,14 +251,6 @@
               <span>✓</span>
               <p>Votre sélection reste modifiable à tout moment.</p>
             </div>
-          </div>
-
-          <div class="hero4">
-            <h2 class="item1">Votre café signature</h2>
-
-            <p class="item2">Espresso · M · Avoine · Caramel</p>
-
-            <a href="#" class="modifier">Modifier</a>
           </div>
         </div>
       </section>
