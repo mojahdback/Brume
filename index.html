@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Coffee Shop Configurator</title>
     <link rel="stylesheet" href="style/nativ.css" />
+    <script src="script/script.js" defer></script>
   </head>
   <body>
     <header class="header">
@@ -65,15 +66,25 @@
               <span class="item2">Choix unique</span>
             </div>
 
-            <div class="options">
+            <div class="options" class="bases">
               <label class="option">
-                <input type="radio" name="base" value="Espresso" checked />
+                <input
+                  type="radio"
+                  name="base"
+                  value="Espresso"
+                  data-price="18"
+                />
                 <span class="name">Espresso</span>
                 <span class="price">18,00 DH</span>
               </label>
 
               <label class="option">
-                <input type="radio" name="base" value="Filtre" />
+                <input
+                  type="radio"
+                  name="base"
+                  value="Filtre"
+                  data-price="16"
+                />
                 <span class="name">Filtre</span>
                 <span class="price">16,00 DH</span>
               </label>
@@ -86,22 +97,37 @@
               <span class="item2">Choix unique</span>
             </div>
 
-            <div class="options">
+            <div class="options" class="sizes">
               <label class="option">
-                <input type="radio" name="size" value="S · 150 ml" />
+                <input
+                  type="radio"
+                  name="size"
+                  value="S · 150 ml"
+                  data-price="0"
+                />
                 <span class="name">S · 150 ml</span>
                 <span class="price">Inclus</span>
               </label>
 
               <label class="option">
-                <input type="radio" name="size" value="M · 250 ml" checked />
+                <input
+                  type="radio"
+                  name="size"
+                  value="M · 250 ml"
+                  data-price="4"
+                />
                 <span class="name">M · 250 ml</span>
                 <span class="price">+ 4,00 DH</span>
               </label>
 
               <div class="options">
                 <label class="option">
-                  <input type="radio" name="size" value="L · 350 ml" />
+                  <input
+                    type="radio"
+                    name="size"
+                    value="L · 350 ml"
+                    data-price="8"
+                  />
                   <span class="name">L · 350 ml</span>
                   <span class="price">+ 8,00 DH</span>
                 </label>
@@ -114,7 +140,7 @@
               <span class="item2">Choix unique</span>
             </div>
 
-            <div class="options">
+            <div class="options" class="milks">
               <label class="option">
                 <input type="radio" name="milk" value="Vache" />
                 <span class="name">Vache</span>
@@ -122,13 +148,13 @@
               </label>
 
               <label class="option">
-                <input type="radio" name="milk" value="Avoine" checked />
+                <input type="radio" name="milk" value="Avoine" data-price="4" />
                 <span class="name">Avoine</span>
                 <span class="price">+ 4,00 DH</span>
               </label>
 
               <label class="option">
-                <input type="radio" name="milk" value="Amande" />
+                <input type="radio" name="milk" value="Amande" data-price="5" />
                 <span class="name">Amande</span>
                 <span class="price">+ 5,00 DH</span>
               </label>
@@ -141,15 +167,25 @@
               <span class="item2">Plusieurs choix</span>
             </div>
 
-            <div class="options">
+            <div class="options" class="extras">
               <label class="option">
-                <input type="checkbox" name="extra" value="Caramel" checked />
+                <input
+                  type="checkbox"
+                  name="extra"
+                  value="Caramel"
+                  data-price="3"
+                />
                 <span class="name">Caramel</span>
                 <span class="price">+ 3,00 DH</span>
               </label>
 
               <label class="option">
-                <input type="checkbox" name="extra" value="Vanille" />
+                <input
+                  type="checkbox"
+                  name="extra"
+                  value="Vanille"
+                  data-price="3"
+                />
                 <span class="name">Vanille</span>
                 <span class="price">+ 3,00 DH</span>
               </label>
@@ -162,7 +198,7 @@
         </div>
       </section>
 
-      <section class="container factoria"  style="display: none;">
+      <section class="container factoria hidden">
         <div>
           <div class="picture">
             <div class="hero1">
@@ -206,7 +242,7 @@
               exactement comme vous l’aimez.
             </h1>
           </div>
-
+          <div class="facteura"></div>
           <div class="hero3">
             <span class="badge">✓ Sélection ajoutée</span>
 
@@ -215,24 +251,24 @@
             <p class="item2">Une création personnalisée · Quantité : 1</p>
 
             <div class="details">
-              <div class="detail">
-                <span>Base · Espresso</span>
-                <span>18,00 DH</span>
+              <div class="detail" data-type="base">
+                <span class="detail-name" >Base · Espresso</span>
+                <span class="detail-price">18,00 DH</span>
               </div>
 
-              <div class="detail">
-                <span>Taille · M / 250 ml</span>
-                <span>4,00 DH</span>
+              <div class="detail" data-type="size">
+                <span class="detail-name">Taille · M / 250 ml</span>
+                <span class="detail-price">4,00 DH</span>
               </div>
 
-              <div class="detail">
-                <span>Lait · Avoine</span>
-                <span>4,00 DH</span>
+              <div class="detail" data-type="milk">
+                <span  class="detail-name">Lait · Avoine</span>
+                <span  class="detail-price">4,00 DH</span>
               </div>
 
-              <div class="detail">
-                <span>Supplément · Caramel</span>
-                <span>3,00 DH</span>
+              <div class="detail" data-type="extra">
+                <span class="detail-name">Supplément · Caramel</span>
+                <span  class="detail-price">3,00 DH</span>
               </div>
             </div>
 
@@ -245,7 +281,7 @@
               Prix de cette sélection · aucun paiement effectué.
             </p>
 
-            <button class="button" type="button">Créer un autre café →</button>
+            <button class="backbtn" type="button">Créer un autre café →</button>
 
             <div class="confirmation">
               <span>✓</span>
@@ -261,7 +297,7 @@
           <p class="price">29,00 DH</p>
         </div>
         <div class="addBtn">
-          <button class="btnSend">Ajouter au panier →</button>
+          <button class="btnSend" type="submit"  form="from_class">Ajouter au panier →</button>
         </div>
       </section>
 

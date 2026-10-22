@@ -314,7 +314,7 @@ img {
   font-size: 24px;
 }
  
-.button {
+.backbtn {
   background-color: #3b4f35;
   color: #ffffff;
   font-family: inherit;
@@ -378,4 +378,8 @@ img {
   padding: 28px 64px;
   font-size: 12px;
   color: #7a7060;
+}
+
+.hidden {
+  display: none;
 }
