@@ -12,7 +12,7 @@ const container1 = document.querySelector('.container');
 
 const factoria = document.querySelector('.factoria');
 
-const lastContainer = document.querySelector('.container_fin') 
+const lastContainer = document.querySelector('.container_fin')
 
 const BtnSand = document.querySelector('.btnSend');
 
@@ -21,17 +21,20 @@ const BackBtn = document.querySelector('.backbtn');
 const totalFin = document.querySelector('.total .item2');
 const details = document.querySelectorAll('.detail');
 
+const modifier = document.getElementById('modifier');
+
+
 
 
 let priceBase = 0;
 let priceSize = 0;
-let priceMilk = 0 ;
-let priceExtra = 0 ;
+let priceMilk = 0;
+let priceExtra = 0;
 
 let valueBase = '';
 let valueSize = '';
-let valueMilk = '' ;
-let valueExtra = '' ;
+let valueMilk = '';
+let valueExtra = '';
 
 // Base 
 
@@ -39,13 +42,13 @@ function choixBase(element) {
 
     bases.forEach(base => {
         base.parentElement.style.backgroundColor = "";
-    
+
     });
     element.parentElement.style.backgroundColor = "#3c5d2f";
     element.parentElement.style.color = "white";
 
     valueBase = element.getAttribute('value');
-  
+
 
     return Number(element.getAttribute('data-price'));
 
@@ -55,9 +58,9 @@ function choixBase(element) {
 
 bases.forEach(base => {
     base.addEventListener('click', () => {
-       priceBase = choixBase(base);
-       calculTotal();
-       
+        priceBase = choixBase(base);
+        calculTotal();
+
     });
 });
 
@@ -82,9 +85,9 @@ function choixSize(element) {
 
 sizes.forEach(size => {
     size.addEventListener('click', () => {
-       priceSize = choixSize(size);
-       calculTotal();
-       
+        priceSize = choixSize(size);
+        calculTotal();
+
     });
 });
 
@@ -99,7 +102,7 @@ function choixMilk(element) {
     element.parentElement.style.color = "white";
 
     valueMilk = element.getAttribute('value');
-    
+
 
     return Number(element.getAttribute('data-price'));
 
@@ -108,9 +111,9 @@ function choixMilk(element) {
 
 milks.forEach(milk => {
     milk.addEventListener('click', () => {
-       priceMilk = choixMilk(milk);
-       calculTotal();
-       
+        priceMilk = choixMilk(milk);
+        calculTotal();
+
     });
 });
 
@@ -130,9 +133,9 @@ function choixExtra(element) {
 }
 
 extras.forEach(extra => {
-         extra.addEventListener('click', () => {
-             priceExtra += choixExtra(extra);
-             calculTotal();
+    extra.addEventListener('change', () => {
+        priceExtra += choixExtra(extra);
+        calculTotal();
     });
 
 });
@@ -143,7 +146,7 @@ function calculTotal() {
     const total = priceBase + priceSize + priceMilk + priceExtra;
     totalPrice.textContent = `${total} DH`;
 
-    return `${total},00 DH`  ;
+    return `${total},00 DH`;
 }
 
 
@@ -159,8 +162,8 @@ BtnSand.addEventListener('click', () => {
         const type = detail.dataset.type;
 
         if (type === 'base') {
-           nameElement.textContent = `${type} · ${valueBase} `;
-           priceElement.textContent = `${priceBase} DH`;
+            nameElement.textContent = `${type} · ${valueBase} `;
+            priceElement.textContent = `${priceBase} DH`;
         }
 
         if (type === 'size') {
@@ -182,12 +185,41 @@ BtnSand.addEventListener('click', () => {
     totalFin.textContent = `${calculTotal()}`;
 });
 
-BackBtn.addEventListener('click' , () => {
+BackBtn.addEventListener('click', () => {
+  
     container1.classList.remove('hidden');
     lastContainer.classList.remove('hidden');
     factoria.classList.add('hidden');
+ 
+    const options = document.querySelectorAll('.option');
+    options.forEach(option => {
+        option.style.backgroundColor = "";
+        
+    });
+
+    priceBase = 0;
+    priceSize = 0;
+    priceMilk = 0;
+    priceExtra = 0;
+    valueBase = '';
+    valueSize = '';
+    valueMilk = '';
+    valueExtra = '';
+        
+    totalPrice.textContent = '00 DH'
 
 });
+
+modifier.addEventListener('click', () => {
+    
+
+    container1.classList.remove('.hidden');
+    lastContainer.classList.remove('.hidden');
+    factoria.classList.add('.hidden');
+
+})
+
+
 
 
 
