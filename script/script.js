@@ -6,6 +6,8 @@ const milks = document.querySelectorAll('input[name="milk"]');
 
 const extras = document.querySelectorAll('input[name="extra"]');
 
+const allInputs = document.querySelectorAll('.option input');
+
 const totalPrice = document.querySelector(".price_total .price");
 
 const container1 = document.querySelector('.container');
@@ -31,10 +33,10 @@ let priceSize = 0;
 let priceMilk = 0;
 let priceExtra = 0;
 
-let valueBase = '';
-let valueSize = '';
-let valueMilk = '';
-let valueExtra = '';
+let valueBase = ' ';
+let valueSize = ' ';
+let valueMilk = ' ';
+let valueExtra = [];
 
 // Base 
 
@@ -122,21 +124,34 @@ milks.forEach(milk => {
 
 function choixExtra(element) {
 
-    element.parentElement.style.backgroundColor = "#3c5d2f";
-    element.parentElement.style.color = "white";
+    priceExtra =0 ;
+    valueExtra = [];
 
-    valueExtra = element.getAttribute('value');
-
-    return Number(element.getAttribute('data-price'));
+     extras.forEach(extra => {
+ 
+        if (extra.checked) {
+            extra.parentElement.style.backgroundColor = "#3c5d2f";
+            extra.parentElement.style.color = "white";
+ 
+            priceExtra += Number(extra.getAttribute('data-price'));
+            valueExtra.push(extra.getAttribute('value'));
+        } else {
+            extra.parentElement.style.backgroundColor = "";
+            extra.parentElement.style.color = "";
+        }
+ 
+    });
 
 
 }
 
 extras.forEach(extra => {
     extra.addEventListener('change', () => {
-        priceExtra += choixExtra(extra);
+        choixExtra();
         calculTotal();
+       
     });
+    
 
 });
 
@@ -191,10 +206,10 @@ BackBtn.addEventListener('click', () => {
     lastContainer.classList.remove('hidden');
     factoria.classList.add('hidden');
  
-    const options = document.querySelectorAll('.option');
-    options.forEach(option => {
-        option.style.backgroundColor = "";
-        
+    allInputs.forEach(input => {
+        input.checked = false;
+        input.parentElement.style.backgroundColor = "";
+        input.parentElement.style.color = "";
     });
 
     priceBase = 0;
@@ -204,20 +219,28 @@ BackBtn.addEventListener('click', () => {
     valueBase = '';
     valueSize = '';
     valueMilk = '';
-    valueExtra = '';
+    valueExtra = [];
         
     totalPrice.textContent = '00 DH'
 
 });
 
-modifier.addEventListener('click', () => {
-    
-
-    container1.classList.remove('.hidden');
-    lastContainer.classList.remove('.hidden');
-    factoria.classList.add('.hidden');
+modifier.addEventListener('click', (e) => {
+    e.preventDefault();
+    container1.classList.remove('hidden');
+    lastContainer.classList.remove('hidden');
+    factoria.classList.add('hidden');
 
 })
+
+
+
+
+
+
+
+
+
 
 
 
