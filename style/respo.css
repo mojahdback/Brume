@@ -1,0 +1,129 @@
+@media (max-width: 768px) {
+  .header .item2 {
+    padding: 16px 0 16px 20px;
+  }
+
+  .header .item3 {
+    padding: 16px 20px 16px 0;
+  }
+
+  .navBar {
+    order: 4;
+    flex-basis: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    font-size: 14px;
+    padding-bottom: 16px;
+  }
+
+  .container {
+    flex-direction: column;
+    gap: 24px;
+    padding: 20px;
+  }
+
+  .picture {
+    width: 100%;
+    padding: 16px;
+  }
+
+  .picture .img {
+    max-height: 260px;
+    margin: 16px 0;
+  }
+
+  .picture .item1 {
+    font-size: 24px;
+  }
+
+  .info {
+    flex: none;
+    width: 100%;
+  }
+
+  .info > .hero2 .item2 {
+    font-size: 34px;
+  }
+
+  .options {
+    gap: 10px;
+  }
+
+  .option {
+    padding: 12px 10px;
+  }
+
+  .option .name {
+    font-size: 14px;
+  }
+
+  .container_fin {
+    align-items: center;
+    gap: 16px;
+    padding: 16px 20px;
+  }
+
+  .price_total .price {
+    font-size: 22px;
+  }
+
+  .btnSend {
+    font-size: 14px;
+    padding: 14px 20px;
+  }
+
+  .factoria .info {
+    padding: 20px;
+  }
+
+  .details {
+    font-size: 13px;
+  }
+
+  .total .item2 {
+    font-size: 22px;
+  }
+
+  .backbtn {
+    width: 100%;
+    font-size: 15px;
+  }
+
+  .parts {
+    padding: 14px 16px;
+  }
+
+  .parts div > .item1 {
+    font-size: 16px;
+  }
+
+  .footer {
+    flex-direction: column;
+    gap: 8px;
+    padding: 20px;
+  }
+}
+
+
+@media (max-width: 400px) {
+  .info > .hero2 .item2 {
+    font-size: 30px;
+  }
+
+  .picture .item1 {
+    font-size: 22px;
+  }
+
+  .option {
+    padding: 10px 8px;
+  }
+
+  .option .name {
+    font-size: 13px;
+  }
+
+  .btnSend {
+    padding: 12px 16px;
+  }
+}
