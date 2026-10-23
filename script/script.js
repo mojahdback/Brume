@@ -25,7 +25,7 @@ const details = document.querySelectorAll('.detail');
 
 const modifier = document.getElementById('modifier');
 
-
+const counter = document.querySelector('.header .item3 .count');
 
 
 let priceBase = 0;
@@ -124,7 +124,7 @@ milks.forEach(milk => {
 
 function choixExtra(element) {
 
-    priceExtra =0 ;
+    priceExtra = 0 ;
     valueExtra = [];
 
      extras.forEach(extra => {
@@ -170,6 +170,7 @@ BtnSand.addEventListener('click', () => {
     container1.classList.add('hidden');
     lastContainer.classList.add('hidden');
     factoria.classList.remove('hidden');
+    counter.textContent++;
 
     details.forEach(detail => {
         const nameElement = detail.querySelector('.detail-name');
@@ -227,6 +228,7 @@ BackBtn.addEventListener('click', () => {
 
 modifier.addEventListener('click', (e) => {
     e.preventDefault();
+    counter.textContent--;
     container1.classList.remove('hidden');
     lastContainer.classList.remove('hidden');
     factoria.classList.add('hidden');
