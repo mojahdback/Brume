@@ -27,6 +27,10 @@ const modifier = document.getElementById('modifier');
 
 const counter = document.querySelector('.header .item3 .count');
 
+const checkoutBtn = document.getElementById('CheckoutBtn');
+
+const checkoutSection = document.getElementById('checkoutSection');
+
 
 let priceBase = 0;
 let priceSize = 0;
@@ -232,6 +236,16 @@ modifier.addEventListener('click', (e) => {
     container1.classList.remove('hidden');
     lastContainer.classList.remove('hidden');
     factoria.classList.add('hidden');
+
+})
+
+
+checkoutBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    container1.classList.add('hidden');
+    lastContainer.classList.add('hidden');
+    factoria.classList.add('hidden');
+    checkoutSection.classList.remove('hidden');
 
 })
 
