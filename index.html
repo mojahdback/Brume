@@ -331,7 +331,7 @@
             </div>
           </section>
 
-          <section class="payment" >
+          <section class="payment">
             <h2 id="paymentTitle">Paiement</h2>
 
             <form class="checkout-form" id="checkoutForm">
@@ -417,7 +417,6 @@
                       id="cardCvv"
                       name="cardCvv"
                       placeholder="123"
-
                     />
                     <small class="form-error" id="cardCvvError"></small>
                   </div>
@@ -429,10 +428,40 @@
               </button>
 
               <p class="form-success hidden" id="formSuccess">
-                 Commande validee. Merci !
+                Commande validee. Merci !
               </p>
             </form>
           </section>
+        </div>
+        <div
+          class="search-modal hidden"
+          id="searchModal"
+        >
+          <div class="search-box">
+            <div class="search-box-header">
+              <h3 id="searchTitle">Ajouter un produit</h3>
+              <button
+                class="search-close"
+                id="closeSearchBtn"
+                type="button"
+              >
+                ✕
+              </button>
+            </div>
+
+            <input
+              type="search"
+              id="searchInput"
+              placeholder="Rechercher un produit..."
+            />
+            <ul class="search-results" id="searchResults">
+        
+            </ul>
+
+            <p class="search-empty hidden" id="searchEmpty">
+              Aucun produit trouve.
+            </p>
+          </div>
         </div>
       </section>
 
