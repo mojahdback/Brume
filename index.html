@@ -307,22 +307,19 @@
         </div>
 
         <div class="checkout-layout">
-
-          <section class="cart" >
+          <section class="cart">
             <div class="cart-header">
               <h2 id="cartTitle">Votre panier</h2>
               <span id="cartCount">0 article</span>
             </div>
 
-            <ul class="cart-list" id="cartList">
-            
-            </ul>
+            <ul class="cart-list" id="cartList"></ul>
 
             <p class="cart-empty hidden" id="cartEmpty">
               Votre panier est vide.
             </p>
 
-            <button class="add-product-btn"  type="button">
+            <button class="add-product-btn" type="button">
               + Ajouter un autre produit
             </button>
 
@@ -332,8 +329,111 @@
                 <strong id="cartTotal">0,00 DH</strong>
               </div>
             </div>
-          </section> 
-            
+          </section>
+
+          <section class="payment" >
+            <h2 id="paymentTitle">Paiement</h2>
+
+            <form class="checkout-form" id="checkoutForm">
+              <fieldset class="form-block">
+                <legend>Informations personnelles</legend>
+                <div class="form">
+                  <div class="form-group">
+                    <label for="firstName">Prénom</label>
+                    <input
+                      type="text"
+                      id="firstName"
+                      name="firstName"
+                      placeholder="Ahmed"
+                    />
+                    <small class="form-error" id="firstNameError"></small>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="lastName">Nom</label>
+                    <input
+                      type="text"
+                      id="lastName"
+                      name="lastName"
+                      placeholder="Benali"
+                    />
+                    <small class="form-error" id="lastNameError"></small>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="address">Adresse de livraison</label>
+                  <input
+                    type="text"
+                    id="address"
+                    name="address"
+                    placeholder="12 rue ... , Casablanca"
+                  />
+                  <small class="form-error" id="addressError"></small>
+                </div>
+
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input
+                    type="text"
+                    id="email"
+                    name="email"
+                    placeholder="nom@exemple.com"
+                  />
+                  <small class="form-error" id="emailError"></small>
+                </div>
+              </fieldset>
+
+              <fieldset class="form-block">
+                <legend>Carte bancaire</legend>
+
+                <div class="form-group">
+                  <label for="cardNumber">Numéro de carte</label>
+                  <input
+                    type="text"
+                    id="cardNumber"
+                    name="cardNumber"
+                    placeholder="06 56 45 23 78"
+                  />
+                  <small class="form-error" id="cardNumberError"></small>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="cardExpiry">Expiration</label>
+                    <input
+                      type="text"
+                      id="cardExpiry"
+                      name="cardExpiry"
+                      placeholder="MM/AA"
+                    />
+                    <small class="form-error" id="cardExpiryError"></small>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="cardCvv">CVV</label>
+                    <input
+                      type="text"
+                      id="cardCvv"
+                      name="cardCvv"
+                      placeholder="123"
+
+                    />
+                    <small class="form-error" id="cardCvvError"></small>
+                  </div>
+                </div>
+              </fieldset>
+
+              <button class="pay-btn" id="payBtn" type="submit">
+                Payer <span id="payTotal">0,00 DH</span>
+              </button>
+
+              <p class="form-success hidden" id="formSuccess">
+                 Commande validee. Merci !
+              </p>
+            </form>
+          </section>
+        </div>
       </section>
 
       <section class="container_fin">
