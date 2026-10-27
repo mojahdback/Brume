@@ -314,7 +314,7 @@ img {
   font-size: 24px;
 }
  
-.backbtn {
+.backbtn , .checkoutbtn {
   background-color: #3b4f35;
   color: #ffffff;
   font-family: inherit;
