@@ -103,6 +103,38 @@
     gap: 8px;
     padding: 20px;
   }
+
+  .checkout {
+    padding: 20px;
+  }
+ 
+  .checkout-layout {
+    flex-direction: column;
+    gap: 24px;
+  }
+ 
+  .cart,
+  .payment {
+    flex: none;
+    width: 100%;
+    padding: 20px;
+  }
+ 
+  .checkout-title {
+    font-size: 34px;
+  }
+ 
+  .form {
+    flex-direction: column;
+  }
+ 
+  .cart-item {
+    flex-wrap: wrap;
+  }
+ 
+  .search-modal {
+    padding: 40px 16px;
+  }
 }
 
 
