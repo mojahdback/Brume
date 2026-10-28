@@ -283,6 +283,8 @@ const cartTotal = document.getElementById('cartTotal');
 const cartEmpty = document.getElementById('cartEmpty');
 const payTotal = document.getElementById('payTotal');
 
+
+
 function formatPrice(price) {
     return price.toFixed(2) + " DH";
 }
@@ -296,8 +298,19 @@ function totalPayer() {
 
     });
     
-
     return formatPrice(total);
+}
+
+function createEl(tag, className, text) {
+    const el = document.createElement(tag);
+    if(className){
+         el.className = className;
+    }
+    if(text !== undefined && text !== null){
+         el.textContent = text;
+    }
+    return el;
+
 }
 
 
