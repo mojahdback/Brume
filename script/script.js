@@ -342,7 +342,21 @@ function createCartItem(item) {
 }
 
 
-console.log(totalPayer())
+function displayCart() {
+  cartList.innerHTML = "";
+
+  coffeeCart.forEach(item => {
+    const cartItem = createCartItem(item);
+    cartList.appendChild(cartItem);
+  });
+
+  cartTotal.textContent = totalPayer();
+}
+
+
+displayCart();
+
+
 
 
 
