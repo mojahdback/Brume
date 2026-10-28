@@ -313,6 +313,34 @@ function createEl(tag, className, text) {
 
 }
 
+function createCartItem(item) {
+    const il = createEl('li' , 'cart-item');
+    const photo = createEl('img' , 'cart-item-img');
+    photo.src = 'assetes/images/' + item.image ; 
+    photo.alt = item.name; 
+    const info  = createEl('div' ,'cart-item-info')
+    const name = createEl('h3' , 'cart-item-name' , item.name);
+    const unitPrice = createEl('p' , 'cart-item-unit' ,formatPrice(item.price));
+    const qty  = createEl('div' ,'cart-item-qty')
+    const btnNeg = createEl('button' , 'qty-btn' , '-');
+    btnNeg.type = "button";
+    const quantity  = createEl('span','qty-value', item.quantity);
+    const btnPos = createEl('button' , 'qty-btn' , '+');
+    btnNeg.type = "button";
+    const subtotal  = createEl('p' ,'item-subtotal' , formatPrice(item.price * item.quantity));
+    info.appendChild(name);
+    info.appendChild(unitPrice);
+    qty.appendChild(btnNeg);
+    qty.appendChild(quantity );
+    qty.appendChild(btnPos);
+    il.appendChild(photo);
+    il.appendChild(info);
+    il.appendChild(qty);
+    il.appendChild(subtotal);
+
+    return il;
+}
+
 
 console.log(totalPayer())
 
