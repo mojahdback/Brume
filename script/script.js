@@ -385,10 +385,31 @@ function displayCart() {
     cartTotal.textContent = totalPayer();
 }
 
-
-
 displayCart();
 
+// live search 
+
+const addProductBtn = document.querySelector('.add-product-btn');
+const searchInput = document.getElementById('searchInput');
+const closeSearchBtn = document.getElementById('closeSearchBtn');
+const searchModal = document.getElementById('searchModal');
+const searchEmpty = document.getElementById('searchEmpty');
+const searchResults = document.getElementById('searchResults');
+
+
+function openModal() {
+    searchModal.classList.remove('hidden');
+   
+}
+
+function closeModal() {
+    searchModal.classList.add('hidden');
+    searchInput.value = '';
+}
+
+
+addProductBtn.addEventListener('click', openModal);
+closeSearchBtn.addEventListener('click', closeModal);
 
 
 
