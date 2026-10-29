@@ -411,7 +411,24 @@ function closeModal() {
 addProductBtn.addEventListener('click', openModal);
 closeSearchBtn.addEventListener('click', closeModal);
 
+searchInput.addEventListener('input' , () => {
+    const searchValue = searchInput.value.toLowerCase() ;
 
+    searchResults.innerHTML = '' ;
+
+    const result = coffeeProducts.filter(product => 
+        product.name.toLowerCase().includes(searchValue)
+
+    );
+
+    result.forEach(product  => {      
+       searchResults.appendChild(createCartItem(product)); 
+    
+       
+    });
+    
+
+})
 
 
 
