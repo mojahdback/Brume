@@ -184,7 +184,7 @@ extras.forEach(extra => {
 
 
 function calculTotal() {
-  
+
     const total = priceBase + priceSize + priceMilk + priceExtra;
     totalPrice.textContent = `${total}`;
 
@@ -291,67 +291,100 @@ function formatPrice(price) {
 
 
 function totalPayer() {
-  
-    let total = 0 ;
-        coffeeCart.forEach(item =>{
-        total += item.price * item.quantity 
+
+    let total = 0;
+    coffeeCart.forEach(item => {
+        total += item.price * item.quantity
 
     });
-    
+
     return formatPrice(total);
 }
 
 function createEl(tag, className, text) {
     const el = document.createElement(tag);
-    if(className){
-         el.className = className;
+    if (className) {
+        el.className = className;
     }
-    if(text !== undefined && text !== null){
-         el.textContent = text;
+    if (text !== undefined && text !== null) {
+        el.textContent = text;
     }
     return el;
 
 }
 
+
 function createCartItem(item) {
-    const il = createEl('li' , 'cart-item');
-    const photo = createEl('img' , 'cart-item-img');
-    photo.src = 'assetes/images/' + item.image ; 
-    photo.alt = item.name; 
-    const info  = createEl('div' ,'cart-item-info')
-    const name = createEl('h3' , 'cart-item-name' , item.name);
-    const unitPrice = createEl('p' , 'cart-item-unit' ,formatPrice(item.price));
-    const qty  = createEl('div' ,'cart-item-qty')
-    const btnNeg = createEl('button' , 'qty-btn' , '-');
+    const il = createEl('li', 'cart-item');
+    const photo = createEl('img', 'cart-item-img');
+    photo.src = 'assetes/images/' + item.image;
+    photo.alt = item.name;
+    const info = createEl('div', 'cart-item-info')
+    const name = createEl('h3', 'cart-item-name', item.name);
+    const unitPrice = createEl('p', 'cart-item-unit', formatPrice(item.price));
+    const qty = createEl('div', 'cart-item-qty')
+    const btnNeg = createEl('button', 'qty-btn', '-');
     btnNeg.type = "button";
-    const quantity  = createEl('span','qty-value', item.quantity);
-    const btnPos = createEl('button' , 'qty-btn' , '+');
+    const quantity = createEl('span', 'qty-value', item.quantity);
+    const btnPos = createEl('button', 'qty-btn', '+');
     btnNeg.type = "button";
-    const subtotal  = createEl('p' ,'item-subtotal' , formatPrice(item.price * item.quantity));
+    const subtotal = createEl('p', 'item-subtotal', formatPrice(item.price * item.quantity));
     info.appendChild(name);
     info.appendChild(unitPrice);
     qty.appendChild(btnNeg);
-    qty.appendChild(quantity );
+    qty.appendChild(quantity);
     qty.appendChild(btnPos);
     il.appendChild(photo);
     il.appendChild(info);
     il.appendChild(qty);
     il.appendChild(subtotal);
 
+
+
+
+    btnNeg.addEventListener('click', () => {
+        if (item.quantity > 0) {
+            item.quantity--;
+
+            quantity.textContent = item.quantity;
+
+            subtotal.textContent = formatPrice(
+                item.price * item.quantity
+            );
+
+            cartTotal.textContent = totalPayer();
+        }
+    });
+
+    btnPos.addEventListener('click', () => {
+        item.quantity++;
+
+        quantity.textContent = item.quantity;
+
+        subtotal.textContent = formatPrice(
+            item.price * item.quantity
+        );
+
+        cartTotal.textContent = totalPayer();
+    });
+
+
+
     return il;
 }
 
 
 function displayCart() {
-  cartList.innerHTML = "";
+    cartList.innerHTML = "";
 
-  coffeeCart.forEach(item => {
-    const cartItem = createCartItem(item);
-    cartList.appendChild(cartItem);
-  });
+    coffeeCart.forEach(item => {
+        const cartItem = createCartItem(item);
+        cartList.appendChild(cartItem);
+    });
 
-  cartTotal.textContent = totalPayer();
+    cartTotal.textContent = totalPayer();
 }
+
 
 
 displayCart();
