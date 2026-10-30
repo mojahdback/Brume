@@ -637,6 +637,59 @@ img {
 }
  
 
+/* live search style carts */
+
+.search-cart {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 12px;
+    margin-bottom: 10px;
+    background-color: #fff;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    cursor: pointer;
+    list-style: none;
+  
+}
+
+.search-cart:hover {
+    background-color: #f8f3ed;
+    border-color: #b68b63;
+   
+}
+
+
+.search-cart .cart-item-img {
+    width: 65px;
+    height: 65px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.search-cart .search-item-name {
+    flex: 1;
+    font-size: 14px;
+    font-weight: 600;
+    color: #3b2920;
+}
+
+
+.search-cart .cart-item-category {
+    font-size: 11px;
+    color: #999;
+    background-color: #f3eee9;
+    padding: 5px 9px;
+    border-radius: 15px;
+}
+
+
+.search-cart .search-item-price {
+    font-size: 14px;
+    font-weight: bold;
+    color: #9b643d;
+    white-space: nowrap;
+}
 
 /* for hidden les sections  */
 
