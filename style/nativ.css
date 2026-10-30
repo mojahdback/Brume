@@ -704,6 +704,16 @@ img {
   background-color:#999;
 }
 
+.checkout-steps > span > button {
+  font-size: 16px;
+  border: none;
+}
+
+.checkout-steps > span > button:hover{
+  color: wheat ;
+  
+}
+
 /* for hidden les sections  */
 
 .hidden {
