@@ -291,10 +291,6 @@ const searchResults = document.getElementById('searchResults');
 const countCarts = document.querySelector('#cartCount span');
 
 
-
-
-
-
 function formatPrice(price) {
     return price.toFixed(2) + " DH";
 }
@@ -465,7 +461,6 @@ searchInput.addEventListener('input', () => {
     result.forEach(product => {
         searchResults.appendChild(createSearchItem(product));
 
-
     });
 
 
@@ -494,11 +489,80 @@ function addToCart(product) {
     displayCart();
 }
 
+// validation
+
+const checkoutForm = document.getElementById('checkoutForm');
+
+checkoutForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    let valid = true;
+
+    const firstName = document.getElementById('firstName').value.trim();
+    const lastName = document.getElementById('lastName').value.trim();
+    const address = document.getElementById('address').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const cardNumber = document.getElementById('cardNumber').value.trim();
+    const cardExpiry = document.getElementById('cardExpiry').value.trim();
+    const cardCvv = document.getElementById('cardCvv').value.trim();
+
+    
+    document.querySelectorAll('.form-error').forEach(error => {
+        error.textContent = '';
+    });
 
 
+    if (firstName === '') {
+        document.getElementById('firstNameError').textContent = 'Prenom obligatoire';
+        valid = false;
+    }
 
 
+    if (lastName === '') {
+        document.getElementById('lastNameError').textContent = 'Nom obligatoire';
+        valid = false;
+    }
 
+   
+    if (address === '') {
+        document.getElementById('addressError').textContent = 'Adresse obligatoire';
+        valid = false;
+    }
+
+  
+    if (!/^\S+@\S+\.\S+$/.test(email)) {
+        document.getElementById('emailError').textContent = 'Email invalide';
+        valid = false;
+    }
+
+
+    if (!/^[0-9]{16}$/.test(cardNumber.replace(/\s/g, ''))) {
+        document.getElementById('cardNumberError').textContent = 'Numero invalide (16 chiffres)';
+        valid = false;
+    }
+
+  
+    if (!/^[0-9]{2}\/[0-9]{2}$/.test(cardExpiry)) {
+        document.getElementById('cardExpiryError').textContent = 'Format : MM/AA';
+        valid = false;
+    }
+
+
+    if (!/^[0-9]{3}$/.test(cardCvv)) {
+        document.getElementById('cardCvvError').textContent = 'CVV invalide (3 chiffres)';
+        valid = false;
+    }
+
+
+    if (coffeeCart.length === 0) {
+        alert('Votre panier est vide !');
+        valid = false;
+    }
+
+    if (valid) {
+        document.getElementById('formSuccess').classList.remove('hidden');
+    }
+});
 
 
 
