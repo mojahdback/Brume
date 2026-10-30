@@ -340,8 +340,6 @@ function createCartItem(item) {
     il.appendChild(subtotal);
 
 
-
-
     btnNeg.addEventListener('click', () => {
         if (item.quantity > 0) {
             item.quantity--;
@@ -395,11 +393,16 @@ const closeSearchBtn = document.getElementById('closeSearchBtn');
 const searchModal = document.getElementById('searchModal');
 const searchEmpty = document.getElementById('searchEmpty');
 const searchResults = document.getElementById('searchResults');
+const countCarts = document.querySelector('#cartCount span') ;
+
+
 
 
 function openModal() {
     searchModal.classList.remove('hidden');
-   
+    searchResults.innerHTML = '';
+    searchInput.value = '';
+
 }
 
 function closeModal() {
@@ -411,24 +414,98 @@ function closeModal() {
 addProductBtn.addEventListener('click', openModal);
 closeSearchBtn.addEventListener('click', closeModal);
 
-searchInput.addEventListener('input' , () => {
-    const searchValue = searchInput.value.toLowerCase() ;
 
-    searchResults.innerHTML = '' ;
+function createSearchItem(product) {
+    const li = createEl('li', 'search-cart');
 
-    const result = coffeeProducts.filter(product => 
-        product.name.toLowerCase().includes(searchValue)
+    const name = createEl(
+        'span',
+        'search-item-name',
+        product.name
+    );
+    const image = createEl('img', 'cart-item-img')
+    image.src = 'assetes/images/' + product.image;
+    image.alt  = product.name ;
 
+    const category = createEl(
+        'p',
+        'cart-item-category',
+        product.category
+    )
+
+    const price = createEl(
+        'span',
+        'search-item-price',
+        formatPrice(product.price)
     );
 
-    result.forEach(product  => {      
-       searchResults.appendChild(createCartItem(product)); 
-    
-       
+
+    li.appendChild(image);
+    li.appendChild(name);
+    li.appendChild(category);
+    li.appendChild(price);
+
+    li.addEventListener('click', () => {
+        addToCart(product);
+        closeModal();
     });
-    
+
+    return li;
+}
+
+
+
+
+searchInput.addEventListener('input', () => {
+
+    const searchValue = searchInput.value.toLowerCase();
+
+    searchResults.innerHTML = '';
+
+    const result = coffeeProducts.filter(product =>
+        product.name.toLowerCase().includes(searchValue)
+    );
+
+    if (result.length === 0) {
+        searchEmpty.classList.remove('hidden');
+    } else {
+        searchEmpty.classList.add('hidden');
+    }
+    result.forEach(product => {
+        searchResults.appendChild(createSearchItem(product));
+
+
+    });
+
 
 })
+
+
+function addToCart(product) {
+    const existing = coffeeCart.find(
+        item => item.id === product.id
+    );
+
+    if (existing) {
+        
+        
+    } else {
+        coffeeCart.push({
+            id: product.id,
+            name: product.name,
+            price: product.price,
+            quantity: 1,
+            image: product.image
+        });
+        Number(countCarts.textContent++);
+    }
+
+    displayCart();
+}
+
+
+
+
 
 
 
