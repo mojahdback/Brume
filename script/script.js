@@ -223,6 +223,7 @@ BtnSand.addEventListener('click', () => {
             nameElement.textContent = `${type} · ${valueExtra} `;
             priceElement.textContent = `${priceExtra} DH`;
         }
+
     });
 
     totalFin.textContent = `${calculTotal()}`;
@@ -495,6 +496,7 @@ const checkoutForm = document.getElementById('checkoutForm');
 
 checkoutForm.addEventListener('submit', (e) => {
     e.preventDefault();
+     
 
     let valid = true;
 
@@ -506,6 +508,7 @@ checkoutForm.addEventListener('submit', (e) => {
     const cardExpiry = document.getElementById('cardExpiry').value.trim();
     const cardCvv = document.getElementById('cardCvv').value.trim();
 
+    const payBtn = document.getElementById('payBtn');
     
     document.querySelectorAll('.form-error').forEach(error => {
         error.textContent = '';
@@ -543,7 +546,7 @@ checkoutForm.addEventListener('submit', (e) => {
 
   
     if (!/^[0-9]{2}\/[0-9]{2}$/.test(cardExpiry)) {
-        document.getElementById('cardExpiryError').textContent = 'Format : MM/AA';
+        document.getElementById('cardExpiryError').textContent = 'Format :';
         valid = false;
     }
 
@@ -561,8 +564,31 @@ checkoutForm.addEventListener('submit', (e) => {
 
     if (valid) {
         document.getElementById('formSuccess').classList.remove('hidden');
+        
+        alert("Data sent successfully");
     }
 });
+
+const moveToPage1 = document.getElementById('linkPage1') ;
+const moveToPage2 = document.getElementById('linkPage2') ;
+
+moveToPage1.addEventListener('click' , () => {
+    container1.classList.remove('hidden');
+    lastContainer.classList.remove('hidden');
+    checkoutSection.classList.add('hidden');
+    
+})
+
+moveToPage2.addEventListener('click' , () => {
+    factoria.classList.remove('hidden');
+    checkoutSection.classList.add('hidden');
+    
+})
+
+
+
+
+
 
 
 
