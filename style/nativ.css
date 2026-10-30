@@ -691,6 +691,19 @@ img {
     white-space: nowrap;
 }
 
+.btnDelete{
+  padding: 5px;
+  border: 1px solid cadetblue;
+  border-radius: 7px;
+  font-size: 12px;
+  color: #30291f;
+
+}
+
+.btnDelete:hover{
+  background-color:#999;
+}
+
 /* for hidden les sections  */
 
 .hidden {
