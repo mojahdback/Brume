@@ -282,6 +282,16 @@ const cartList = document.getElementById('cartList');
 const cartTotal = document.getElementById('cartTotal');
 const cartEmpty = document.getElementById('cartEmpty');
 const payTotal = document.getElementById('payTotal');
+const addProductBtn = document.querySelector('.add-product-btn');
+const searchInput = document.getElementById('searchInput');
+const closeSearchBtn = document.getElementById('closeSearchBtn');
+const searchModal = document.getElementById('searchModal');
+const searchEmpty = document.getElementById('searchEmpty');
+const searchResults = document.getElementById('searchResults');
+const countCarts = document.querySelector('#cartCount span');
+
+
+
 
 
 
@@ -329,6 +339,8 @@ function createCartItem(item) {
     const btnPos = createEl('button', 'qty-btn', '+');
     btnNeg.type = "button";
     const subtotal = createEl('p', 'item-subtotal', formatPrice(item.price * item.quantity));
+    const btnDelete = createEl('button', 'btnDelete', 'Remove');
+    btnDelete.type = 'button';
     info.appendChild(name);
     info.appendChild(unitPrice);
     qty.appendChild(btnNeg);
@@ -338,34 +350,29 @@ function createCartItem(item) {
     il.appendChild(info);
     il.appendChild(qty);
     il.appendChild(subtotal);
+    il.appendChild(btnDelete);
 
 
     btnNeg.addEventListener('click', () => {
-        if (item.quantity > 0) {
+        if (item.quantity > 1) {
             item.quantity--;
-
-            quantity.textContent = item.quantity;
-
-            subtotal.textContent = formatPrice(
-                item.price * item.quantity
-            );
-
-            cartTotal.textContent = totalPayer();
+            displayCart();
         }
     });
 
     btnPos.addEventListener('click', () => {
         item.quantity++;
-
-        quantity.textContent = item.quantity;
-
-        subtotal.textContent = formatPrice(
-            item.price * item.quantity
-        );
-
-        cartTotal.textContent = totalPayer();
+        displayCart();
+       
     });
 
+    btnDelete.addEventListener('click', () => {
+        coffeeCart = coffeeCart.filter(
+            product => product.id !== item.id
+        );
+
+        displayCart();
+    });
 
 
     return il;
@@ -380,23 +387,21 @@ function displayCart() {
         cartList.appendChild(cartItem);
     });
 
+    const totalItems = coffeeCart.reduce(
+        (sum, item) => sum + item.quantity,
+        0
+    );
+
+    countCarts.textContent = totalItems;
+
     cartTotal.textContent = totalPayer();
+    payTotal.textContent = totalPayer();
+
 }
 
 displayCart();
 
 // live search 
-
-const addProductBtn = document.querySelector('.add-product-btn');
-const searchInput = document.getElementById('searchInput');
-const closeSearchBtn = document.getElementById('closeSearchBtn');
-const searchModal = document.getElementById('searchModal');
-const searchEmpty = document.getElementById('searchEmpty');
-const searchResults = document.getElementById('searchResults');
-const countCarts = document.querySelector('#cartCount span') ;
-
-
-
 
 function openModal() {
     searchModal.classList.remove('hidden');
@@ -418,27 +423,14 @@ closeSearchBtn.addEventListener('click', closeModal);
 function createSearchItem(product) {
     const li = createEl('li', 'search-cart');
 
-    const name = createEl(
-        'span',
-        'search-item-name',
-        product.name
-    );
+    const name = createEl('span', 'search-item-name', product.name);
     const image = createEl('img', 'cart-item-img')
     image.src = 'assetes/images/' + product.image;
-    image.alt  = product.name ;
+    image.alt = product.name;
 
-    const category = createEl(
-        'p',
-        'cart-item-category',
-        product.category
-    )
+    const category = createEl('p', 'cart-item-category', product.category)
 
-    const price = createEl(
-        'span',
-        'search-item-price',
-        formatPrice(product.price)
-    );
-
+    const price = createEl('span', 'search-item-price', formatPrice(product.price));
 
     li.appendChild(image);
     li.appendChild(name);
@@ -452,8 +444,6 @@ function createSearchItem(product) {
 
     return li;
 }
-
-
 
 
 searchInput.addEventListener('input', () => {
@@ -471,6 +461,7 @@ searchInput.addEventListener('input', () => {
     } else {
         searchEmpty.classList.add('hidden');
     }
+
     result.forEach(product => {
         searchResults.appendChild(createSearchItem(product));
 
@@ -482,13 +473,13 @@ searchInput.addEventListener('input', () => {
 
 
 function addToCart(product) {
-    const existing = coffeeCart.find(
+    const exist = coffeeCart.find(
         item => item.id === product.id
     );
 
-    if (existing) {
-        
-        
+    if (exist) {
+        exist.quantity += 1;
+
     } else {
         coffeeCart.push({
             id: product.id,
@@ -497,7 +488,7 @@ function addToCart(product) {
             quantity: 1,
             image: product.image
         });
-        Number(countCarts.textContent++);
+
     }
 
     displayCart();
