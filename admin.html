@@ -288,7 +288,7 @@
               </section>
 
               <!-- ETAPE 2 : Caracteristiques & options  -->
-              <section data-step="2" class="space-y-5">
+              <section data-step="2" class="hidden space-y-5">
                 <h2 class="font-serif text-xl">
                   Caractéristiques &amp; options
                 </h2>
@@ -506,6 +506,42 @@
                     </label>
                   </div>
                 </fieldset>
+              </section>
+
+              
+              <!-- ETAPE 3 : Recapitulatif (carte produit)  -->
+              <section data-step="3" class=" space-y-5">
+                <h2 class="font-serif text-xl">Récapitulatif</h2>
+ 
+                <article class="overflow-hidden rounded-2xl border border-brume-line bg-white">
+                  <div class="flex h-56 items-center justify-center bg-brume-beige">
+                    <img id="recapImage" src="" alt="Aperçu du produit" class="hidden h-full w-full object-cover" />
+                    <span id="recapNoImage" class="text-sm text-brume-muted">Aucune image</span>
+                  </div>
+ 
+                  <div class="space-y-4 p-5">
+                    <div class="flex items-start justify-between gap-4">
+                      <div>
+                        <h3 id="recapName" class="font-serif text-2xl">—</h3>
+                        <p id="recapOrigin" class="text-sm text-brume-muted">—</p>
+                      </div>
+                      <div class="text-right">
+                        <p id="recapPrice" class="text-xl">—</p>
+                        <p id="recapPromo" class="hidden text-xs font-medium text-brume-green"></p>
+                      </div>
+                    </div>
+ 
+                    <p id="recapDescription" class="text-sm text-brume-muted">—</p>
+ 
+                    <dl class="grid grid-cols-2 gap-4 border-t border-brume-line pt-4 text-sm">
+                      <div><dt class="text-brume-muted">Intensité</dt><dd id="recapIntensity">—</dd></div>
+                      <div><dt class="text-brume-muted">Température</dt><dd id="recapTemperature">—</dd></div>
+                      <div><dt class="text-brume-muted">Tailles</dt><dd id="recapSizes">—</dd></div>
+                      <div><dt class="text-brume-muted">Laits</dt><dd id="recapMilks">—</dd></div>
+                      <div class="col-span-2"><dt class="text-brume-muted">Suppléments</dt><dd id="recapExtras">—</dd></div>
+                    </dl>
+                  </div>
+                </article>
               </section>
             </form>
           </div>
