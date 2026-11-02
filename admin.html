@@ -67,7 +67,7 @@
       </aside>
 
       <div class="min-w-0 flex-1">
-         <!--  HEADER -->
+        <!--  HEADER -->
         <header
           class="flex items-center justify-between border-b border-brume-line bg-white px-6 py-4 md:px-10"
         >
@@ -77,41 +77,221 @@
           </div>
           <div class="flex items-center gap-3 text-sm">
             <span class="hidden text-brume-muted sm:block">Admin BRUME</span>
-            <span class="flex h-9 w-9 items-center justify-center rounded-full bg-brume-green text-xs text-white">AD</span>
+            <span
+              class="flex h-9 w-9 items-center justify-center rounded-full bg-brume-green text-xs text-white"
+              >AD</span
+            >
           </div>
         </header>
 
-       
         <!--  MAIN  -->
         <main class="mx-auto w-full max-w-3xl p-6 md:p-10">
           <div class="rounded-2xl border border-brume-line bg-white p-6 md:p-8">
             <!--  Progress bar  -->
             <div class="mb-8">
               <ol class="flex items-center justify-between gap-2 text-sm">
-                <li data-step-indicator="1" class="flex items-center gap-2 font-medium text-brume-green">
-                  <span class="flex h-8 w-8 items-center justify-center rounded-full bg-brume-green text-white">1</span>
+                <li
+                  data-step-indicator="1"
+                  class="flex items-center gap-2 font-medium text-brume-green"
+                >
+                  <span
+                    class="flex h-8 w-8 items-center justify-center rounded-full bg-brume-green text-white"
+                    >1</span
+                  >
                   Informations
                 </li>
-                <li data-step-indicator="2" class="flex items-center gap-2 text-brume-muted">
-                  <span class="flex h-8 w-8 items-center justify-center rounded-full bg-brume-line text-brume-muted">2</span>
+                <li
+                  data-step-indicator="2"
+                  class="flex items-center gap-2 text-brume-muted"
+                >
+                  <span
+                    class="flex h-8 w-8 items-center justify-center rounded-full bg-brume-line text-brume-muted"
+                    >2</span
+                  >
                   Caractéristiques
                 </li>
-                <li data-step-indicator="3" class="flex items-center gap-2 text-brume-muted">
-                  <span class="flex h-8 w-8 items-center justify-center rounded-full bg-brume-line text-brume-muted">3</span>
+                <li
+                  data-step-indicator="3"
+                  class="flex items-center gap-2 text-brume-muted"
+                >
+                  <span
+                    class="flex h-8 w-8 items-center justify-center rounded-full bg-brume-line text-brume-muted"
+                    >3</span
+                  >
                   Récapitulatif
                 </li>
               </ol>
- 
+
               <div class="mt-4 h-2 w-full rounded-full bg-brume-line">
-                <div id="progressBar" class="h-2 w-1/3 rounded-full bg-brume-green transition-all duration-300"></div>
+                <div
+                  id="progressBar"
+                  class="h-2 w-1/3 rounded-full bg-brume-green transition-all duration-300"
+                ></div>
               </div>
-              <p id="stepLabel" class="mt-2 text-xs text-brume-muted">Étape 1 sur 3</p>
+              <p id="stepLabel" class="mt-2 text-xs text-brume-muted">
+                Étape 1 sur 3
+              </p>
             </div>
- 
+
+            <!--  Formulaire  -->
+            <form id="wizardForm" novalidate>
+              <!-- ETAPE 1 : Informations generales -->
+              <section data-step="1" class="space-y-5">
+                <h2 class="font-serif text-xl">Informations générales</h2>
+
+                <div>
+                  <label
+                    for="productName"
+                    class="mb-1 block text-sm text-brume-muted"
+                    >Nom de la boisson</label
+                  >
+                  <input
+                    type="text"
+                    id="productName"
+                    name="productName"
+                    placeholder="Latte Caramel"
+                    class="w-full rounded-xl border border-brume-line bg-white px-4 py-3 text-sm focus:border-brume-green focus:outline-none"
+                  />
+                  <p
+                    id="productNameError"
+                    class="mt-1 text-xs text-red-600"
+                  ></p>
+                </div>
+
+                <div>
+                  <label
+                    for="productPrice"
+                    class="mb-1 block text-sm text-brume-muted"
+                    >Prix de base (DH)</label
+                  >
+                  <input
+                    type="number"
+                    id="productPrice"
+                    name="productPrice"
+                    min="0"
+                    step="0.01"
+                    placeholder="4.50"
+                    class="w-full rounded-xl border border-brume-line bg-white px-4 py-3 text-sm focus:border-brume-green focus:outline-none"
+                  />
+                  <p
+                    id="productPriceError"
+                    class="mt-1 text-xs text-red-600"
+                  ></p>
+                </div>
+
+                <div>
+                  <label
+                    for="productDescription"
+                    class="mb-1 block text-sm text-brume-muted"
+                    >Description</label
+                  >
+                  <textarea
+                    id="productDescription"
+                    name="productDescription"
+                    rows="3"
+                    placeholder="Un latte doux au caramel salé..."
+                    class="w-full rounded-xl border border-brume-line bg-white px-4 py-3 text-sm focus:border-brume-green focus:outline-none"
+                  ></textarea>
+                  <p
+                    id="productDescriptionError"
+                    class="mt-1 text-xs text-red-600"
+                  ></p>
+                </div>
+
+                <div>
+                  <label
+                    for="productImage"
+                    class="mb-1 block text-sm text-brume-muted"
+                    >Image du produit (lien)</label
+                  >
+                  <input
+                    type="url"
+                    id="productImage"
+                    name="productImage"
+                    placeholder="https://..."
+                    class="w-full rounded-xl border border-brume-line bg-white px-4 py-3 text-sm focus:border-brume-green focus:outline-none"
+                  />
+                  <p
+                    id="productImageError"
+                    class="mt-1 text-xs text-red-600"
+                  ></p>
+                </div>
+
+                <!-- Toggle dynamique : Produit en promotion -->
+                <div
+                  class="rounded-xl border border-brume-line bg-brume-cream p-4"
+                >
+                  <label
+                    class="flex cursor-pointer items-center justify-between"
+                  >
+                    <span class="text-sm font-medium"
+                      >Produit en promotion</span
+                    >
+                    <span class="relative inline-block h-6 w-11">
+                      <input
+                        type="checkbox"
+                        id="promoToggle"
+                        name="promo"
+                        class="peer sr-only"
+                      />
+                      <span
+                        class="absolute inset-0 rounded-full bg-stone-300 transition peer-checked:bg-brume-green"
+                      ></span>
+                      <span
+                        class="absolute left-0.5 top-0.5 h-5 w-5 rounded-full bg-white transition peer-checked:translate-x-5"
+                      ></span>
+                    </span>
+                  </label>
+
+                  <div id="promoFields" class="hidden">
+                    <div class="mt-4 grid gap-4 sm:grid-cols-2">
+                      <div>
+                        <label
+                          for="promoPercent"
+                          class="mb-1 block text-sm text-brume-muted"
+                          >Pourcentage de réduction</label
+                        >
+                        <input
+                          type="number"
+                          id="promoPercent"
+                          name="promoPercent"
+                          min="1"
+                          max="100"
+                          placeholder="20"
+                          class="w-full rounded-xl border border-brume-line bg-white px-4 py-3 text-sm focus:border-brume-green focus:outline-none"
+                        />
+                        <p
+                          id="promoPercentError"
+                          class="mt-1 text-xs text-red-600"
+                        ></p>
+                      </div>
+                      <div>
+                        <label
+                          for="promoEnd"
+                          class="mb-1 block text-sm text-brume-muted"
+                          >Date de fin de promo</label
+                        >
+                        <input
+                          type="date"
+                          id="promoEnd"
+                          name="promoEnd"
+                          class="w-full rounded-xl border border-brume-line bg-white px-4 py-3 text-sm focus:border-brume-green focus:outline-none"
+                        />
+                        <p
+                          id="promoEndError"
+                          class="mt-1 text-xs text-red-600"
+                        ></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </form>
+          </div>
         </main>
       </div>
     </div>
 
-     <script src="https://cdn.jsdelivr.net/npm/toastify-js@1.12.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js@1.12.0"></script>
   </body>
 </html>
