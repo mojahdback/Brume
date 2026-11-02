@@ -1,34 +1,76 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>Admin Dashboard</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-</head>
 
-<body class="bg-gray-50">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/toastify-js@1.12.0/src/toastify.min.css"
+    />
+    <style type="text/tailwindcss">
+      @theme {
+        --color-brume-cream: #faf6ee;
+        --color-brume-green: #3b4f35;
+        --color-brume-green-dark: #2c3c28;
+        --color-brume-beige: #e8dcc8;
+        --color-brume-sage: #e8edda;
+        --color-brume-line: #e6dfd1;
+        --color-brume-muted: #7a7060;
+        --color-brume-ink: #2e2a22;
+      }
+    </style>
+  </head>
 
+  <body class="bg-brume-cream text-brume-ink">
     <div class="flex min-h-screen">
-
-        <aside>
-        </aside>
-
-        <div class="flex-1">
-
-            <header>
-        
-            </header>
-
-         
-            <main>
-              
-            </main>
-
+      <aside
+        class="hidden w-64 shrink-0 flex-col gap-8 border-r border-brume-line bg-white p-6 md:flex"
+      >
+        <div class="flex items-center gap-2">
+          <img src="assetes/icons/Brume.png" alt="" class="h-6" />
+          <span class="font-serif text-2xl">BRUME</span>
         </div>
 
-    </div>
+        <nav class="flex flex-col gap-1 text-sm">
+          <a
+            href="#"
+            class="rounded-xl px-4 py-3 text-brume-muted hover:bg-brume-sage"
+            >Tableau de bord</a
+          >
+          <a
+            href="#"
+            class="rounded-xl bg-brume-sage px-4 py-3 font-medium text-brume-green"
+            >Produits</a
+          >
+          <a
+            href="#"
+            class="rounded-xl px-4 py-3 text-brume-muted hover:bg-brume-sage"
+            >Commandes</a
+          >
+          <a
+            href="#"
+            class="rounded-xl px-4 py-3 text-brume-muted hover:bg-brume-sage"
+            >Clients</a
+          >
+          <a
+            href="#"
+            class="rounded-xl px-4 py-3 text-brume-muted hover:bg-brume-sage"
+            >Paramètres</a
+          >
+        </nav>
 
-</body>
+        <p class="mt-auto text-xs text-brume-muted">Back-office · BRUME</p>
+      </aside>
+
+      <div class="min-w-0 flex-1">
+        <header></header>
+
+        <main></main>
+      </div>
+    </div>
+  </body>
 </html>
