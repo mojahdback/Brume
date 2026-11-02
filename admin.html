@@ -136,7 +136,7 @@
             <!--  Formulaire  -->
             <form id="wizardForm" novalidate>
               <!-- ETAPE 1 : Informations generales -->
-              <section data-step="1" class="space-y-5">
+              <section data-step="1" class="hidden space-y-5">
                 <h2 class="font-serif text-xl">Informations générales</h2>
 
                 <div>
@@ -285,6 +285,227 @@
                     </div>
                   </div>
                 </div>
+              </section>
+
+              <!-- ETAPE 2 : Caracteristiques & options  -->
+              <section data-step="2" class="space-y-5">
+                <h2 class="font-serif text-xl">
+                  Caractéristiques &amp; options
+                </h2>
+
+                <div>
+                  <label
+                    for="origin"
+                    class="mb-1 block text-sm text-brume-muted"
+                    >Origine des grains</label
+                  >
+                  <select
+                    id="origin"
+                    name="origin"
+                    class="w-full rounded-xl border border-brume-line bg-white px-4 py-3 text-sm focus:border-brume-green focus:outline-none"
+                  >
+                    <option value="" selected disabled>
+                      Choisir une origine
+                    </option>
+                    <option value="Colombie">Colombie</option>
+                    <option value="Éthiopie">Éthiopie</option>
+                    <option value="Brésil">Brésil</option>
+                    <option value="Mélange Maison">Mélange Maison</option>
+                  </select>
+                  <p id="originError" class="mt-1 text-xs text-red-600"></p>
+                </div>
+
+                <div>
+                  <label
+                    for="intensity"
+                    class="mb-1 flex justify-between text-sm text-brume-muted"
+                  >
+                    <span>Torréfaction / Intensité</span>
+                    <output
+                      id="intensityValue"
+                      class="font-medium text-brume-green"
+                      >5</output
+                    >
+                  </label>
+                  <input
+                    type="range"
+                    id="intensity"
+                    name="intensity"
+                    min="1"
+                    max="10"
+                    value="5"
+                    class="w-full accent-brume-green"
+                  />
+                </div>
+
+                <fieldset>
+                  <legend class="mb-2 text-sm text-brume-muted">
+                    Température
+                  </legend>
+                  <div class="flex flex-wrap gap-3">
+                    <label
+                      class="flex cursor-pointer items-center gap-2 rounded-xl border border-brume-line bg-white px-4 py-2.5 text-sm has-[:checked]:border-brume-green has-[:checked]:bg-brume-sage"
+                    >
+                      <input
+                        type="radio"
+                        name="temperature"
+                        value="Chaud"
+                        class="accent-brume-green"
+                      />
+                      Chaud
+                    </label>
+                    <label
+                      class="flex cursor-pointer items-center gap-2 rounded-xl border border-brume-line bg-white px-4 py-2.5 text-sm has-[:checked]:border-brume-green has-[:checked]:bg-brume-sage"
+                    >
+                      <input
+                        type="radio"
+                        name="temperature"
+                        value="Glacé"
+                        class="accent-brume-green"
+                      />
+                      Glacé
+                    </label>
+                  </div>
+                  <p
+                    id="temperatureError"
+                    class="mt-1 text-xs text-red-600"
+                  ></p>
+                </fieldset>
+
+                <fieldset>
+                  <legend class="mb-2 text-sm text-brume-muted">
+                    Tailles disponibles
+                  </legend>
+                  <div class="flex flex-wrap gap-3">
+                    <label
+                      class="flex cursor-pointer items-center gap-2 rounded-xl border border-brume-line bg-white px-4 py-2.5 text-sm has-[:checked]:border-brume-green has-[:checked]:bg-brume-sage"
+                    >
+                      <input
+                        type="checkbox"
+                        name="sizes"
+                        value="Small"
+                        class="accent-brume-green"
+                      />
+                      Small
+                    </label>
+                    <label
+                      class="flex cursor-pointer items-center gap-2 rounded-xl border border-brume-line bg-white px-4 py-2.5 text-sm has-[:checked]:border-brume-green has-[:checked]:bg-brume-sage"
+                    >
+                      <input
+                        type="checkbox"
+                        name="sizes"
+                        value="Medium"
+                        class="accent-brume-green"
+                      />
+                      Medium
+                    </label>
+                    <label
+                      class="flex cursor-pointer items-center gap-2 rounded-xl border border-brume-line bg-white px-4 py-2.5 text-sm has-[:checked]:border-brume-green has-[:checked]:bg-brume-sage"
+                    >
+                      <input
+                        type="checkbox"
+                        name="sizes"
+                        value="Large"
+                        class="accent-brume-green"
+                      />
+                      Large
+                    </label>
+                  </div>
+                  <p id="sizesError" class="mt-1 text-xs text-red-600"></p>
+                </fieldset>
+
+                <fieldset>
+                  <legend class="mb-2 text-sm text-brume-muted">
+                    Options de lait
+                  </legend>
+                  <div class="flex flex-wrap gap-3">
+                    <label
+                      class="flex cursor-pointer items-center gap-2 rounded-xl border border-brume-line bg-white px-4 py-2.5 text-sm has-[:checked]:border-brume-green has-[:checked]:bg-brume-sage"
+                    >
+                      <input
+                        type="checkbox"
+                        name="milks"
+                        value="Vache"
+                        class="accent-brume-green"
+                      />
+                      Vache
+                    </label>
+                    <label
+                      class="flex cursor-pointer items-center gap-2 rounded-xl border border-brume-line bg-white px-4 py-2.5 text-sm has-[:checked]:border-brume-green has-[:checked]:bg-brume-sage"
+                    >
+                      <input
+                        type="checkbox"
+                        name="milks"
+                        value="Avoine"
+                        class="accent-brume-green"
+                      />
+                      Avoine
+                    </label>
+                    <label
+                      class="flex cursor-pointer items-center gap-2 rounded-xl border border-brume-line bg-white px-4 py-2.5 text-sm has-[:checked]:border-brume-green has-[:checked]:bg-brume-sage"
+                    >
+                      <input
+                        type="checkbox"
+                        name="milks"
+                        value="Soja"
+                        class="accent-brume-green"
+                      />
+                      Soja
+                    </label>
+                    <label
+                      class="flex cursor-pointer items-center gap-2 rounded-xl border border-brume-line bg-white px-4 py-2.5 text-sm has-[:checked]:border-brume-green has-[:checked]:bg-brume-sage"
+                    >
+                      <input
+                        type="checkbox"
+                        name="milks"
+                        value="Amande"
+                        class="accent-brume-green"
+                      />
+                      Amande
+                    </label>
+                  </div>
+                </fieldset>
+
+                <fieldset>
+                  <legend class="mb-2 text-sm text-brume-muted">
+                    Suppléments
+                  </legend>
+                  <div class="flex flex-wrap gap-3">
+                    <label
+                      class="flex cursor-pointer items-center gap-2 rounded-xl border border-brume-line bg-white px-4 py-2.5 text-sm has-[:checked]:border-brume-green has-[:checked]:bg-brume-sage"
+                    >
+                      <input
+                        type="checkbox"
+                        name="extras"
+                        value="Vanille"
+                        class="accent-brume-green"
+                      />
+                      Vanille
+                    </label>
+                    <label
+                      class="flex cursor-pointer items-center gap-2 rounded-xl border border-brume-line bg-white px-4 py-2.5 text-sm has-[:checked]:border-brume-green has-[:checked]:bg-brume-sage"
+                    >
+                      <input
+                        type="checkbox"
+                        name="extras"
+                        value="Caramel"
+                        class="accent-brume-green"
+                      />
+                      Caramel
+                    </label>
+                    <label
+                      class="flex cursor-pointer items-center gap-2 rounded-xl border border-brume-line bg-white px-4 py-2.5 text-sm has-[:checked]:border-brume-green has-[:checked]:bg-brume-sage"
+                    >
+                      <input
+                        type="checkbox"
+                        name="extras"
+                        value="Noisette"
+                        class="accent-brume-green"
+                      />
+                      Noisette
+                    </label>
+                  </div>
+                </fieldset>
               </section>
             </form>
           </div>
