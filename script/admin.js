@@ -10,8 +10,6 @@ const promoEnd = document.getElementById('promoEnd');
 
 
 
-const suivantBtn = document.getElementById('nextBtn');
-
 function validation() {
 
     let virifi = true;
@@ -86,8 +84,11 @@ function validation() {
 
 }
 
+const suivantBtn = document.getElementById('nextBtn');
+const prevBtn = document.getElementById('prevBtn');
 const sections = document.querySelectorAll('.section');
 const steps = document.querySelectorAll('[data-step]')
+const confirmBtn = document.getElementById('submitBtn');
 
 let index = 0;
 
@@ -99,11 +100,51 @@ suivantBtn.addEventListener('click', () => {
         if (index >= steps.length) {
             index = steps.length - 1;
         }
-
         sections[index].classList.remove('hidden');
+    }
+
+    if (index > 0) {
+        prevBtn.classList.remove('invisible');
 
     }
 
+    if (index >= 2) {
+        suivantBtn.classList.add('invisible');
+
+    }
+
+    if (index == 2) {
+        confirmBtn.classList.remove('hidden');
+    }
+
+
+})
+
+prevBtn.addEventListener('click', () => {
+    sections[index].classList.add('hidden');
+    index--;
+
+    if (index < 0) {
+        index = 0;
+    }
+
+    sections[index].classList.remove('hidden');
+
+    if (index >= 2) {
+        suivantBtn.classList.add('invisible');
+    }
+    else if (index == 0) {
+        prevBtn.classList.add('invisible');
+
+    }
+    else {
+        suivantBtn.classList.remove('invisible');
+
+    }
+
+    if (index !== 2) {
+        confirmBtn.classList.add('hidden');
+    }
 
 })
 
