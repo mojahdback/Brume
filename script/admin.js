@@ -8,6 +8,8 @@ const promoPercent = document.getElementById('promoPercent');
 const promoEnd = document.getElementById('promoEnd');
 // const wizardForm = document.getElementById('wizardForm');
 
+
+
 const suivantBtn = document.getElementById('nextBtn');
 
 function validation() {
@@ -84,10 +86,25 @@ function validation() {
 
 }
 
+const sections = document.querySelectorAll('.section');
+const steps = document.querySelectorAll('[data-step]')
+
+let index = 0;
 
 suivantBtn.addEventListener('click', () => {
+    if (validation()) {
+        sections[index].classList.add('hidden');
+        index++;
 
-    validation();
+        if (index >= steps.length) {
+            index = steps.length - 1;
+        }
+
+        sections[index].classList.remove('hidden');
+
+    }
+
+
 })
 
 promoToggleInput.addEventListener('change', () => {
