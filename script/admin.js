@@ -325,3 +325,14 @@ function displayProduct() {
 
 }
 
+
+confirmBtn.addEventListener('click', () => {
+  Swal.fire({
+        title: "Produit ajouté avec succès !",
+        text: "Votre boisson a été enregistrée avec succès.",
+        icon: "success",
+        confirmButtonText: "Parfait !",
+        draggable: true
+    });
+    
+})
