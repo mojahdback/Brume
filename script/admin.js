@@ -1,3 +1,5 @@
+const products = []; 
+
 const prodNameInput = document.getElementById('productName');
 const prodPriceInput = document.getElementById('productPrice');
 const prodDescriptionInput = document.getElementById('productDescription');
@@ -303,6 +305,7 @@ function getProductData() {
             .map(extra => extra.value)
     };
 
+    products.push(product);
     return product;
 }
 
@@ -336,9 +339,17 @@ confirmBtn.addEventListener('click', () => {
         draggable: true
     }).then(() => {
         sections[index].classList.add('hidden');
+        confirmBtn.classList.add('hidden');
         index = 0 ; 
         wizardForm.reset();
         sections[index].classList.remove('hidden');
+        suivantBtn.classList.remove('invisible');
+        updateProgress()
+
     });
     
 })
+
+
+
+
