@@ -46,7 +46,7 @@
             class="rounded-xl bg-brume-sage px-4 py-3 font-medium text-brume-green"
             >Produits</a
           >
-          <a
+          <!-- <a
             href="#"
             class="rounded-xl px-4 py-3 text-brume-muted hover:bg-brume-sage"
             >Commandes</a
@@ -60,7 +60,7 @@
             href="#"
             class="rounded-xl px-4 py-3 text-brume-muted hover:bg-brume-sage"
             >Paramètres</a
-          >
+          > -->
         </nav>
 
         <p class="mt-auto text-xs text-brume-muted">Back-office · BRUME</p>
@@ -95,7 +95,7 @@
                   class="flex items-center gap-2 font-medium text-brume-green"
                 >
                   <span
-                    class="flex h-8 w-8 items-center justify-center rounded-full bg-brume-green text-white"
+                    class="pro flex h-8 w-8 items-center justify-center rounded-full bg-brume-green text-white"
                     >1</span
                   >
                   Informations
@@ -105,7 +105,7 @@
                   class="flex items-center gap-2 text-brume-muted"
                 >
                   <span
-                    class="flex h-8 w-8 items-center justify-center rounded-full bg-brume-line text-brume-muted"
+                    class="pro flex h-8 w-8 items-center justify-center rounded-full bg-brume-line text-brume-muted "
                     >2</span
                   >
                   Caractéristiques
@@ -115,7 +115,7 @@
                   class="flex items-center gap-2 text-brume-muted"
                 >
                   <span
-                    class="flex h-8 w-8 items-center justify-center rounded-full bg-brume-line text-brume-muted"
+                    class="pro flex h-8 w-8 items-center justify-center rounded-full bg-brume-line text-brume-muted"
                     >3</span
                   >
                   Récapitulatif
@@ -336,6 +336,7 @@
                     value="5"
                     class="w-full accent-brume-green"
                   />
+                  <p id="intensityError" class="mt-1 text-xs text-red-600"></p>
                 </div>
 
                 <fieldset>
@@ -464,6 +465,7 @@
                       Amande
                     </label>
                   </div>
+                  <p id="milksError" class="mt-1 text-xs text-red-600"></p>
                 </fieldset>
 
                 <fieldset>
@@ -505,6 +507,7 @@
                       Noisette
                     </label>
                   </div>
+                   <p id="extrasError" class="mt-1 text-xs text-red-600"></p>
                 </fieldset>
               </section>
 
@@ -522,11 +525,8 @@
                       id="recapImage"
                       src=""
                       alt="Aperçu du produit"
-                      class="hidden h-full w-full object-cover"
+                      class="h-full w-full object-cover"
                     />
-                    <span id="recapNoImage" class="text-sm text-brume-muted"
-                      >Aucune image</span
-                    >
                   </div>
 
                   <div class="space-y-4 p-5">
@@ -541,7 +541,7 @@
                         <p id="recapPrice" class="text-xl">—</p>
                         <p
                           id="recapPromo"
-                          class="hidden text-xs font-medium text-brume-green"
+                          class=" text-xs font-medium text-brume-green"
                         ></p>
                       </div>
                     </div>

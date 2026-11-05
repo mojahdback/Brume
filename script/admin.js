@@ -157,8 +157,52 @@ const prevBtn = document.getElementById('prevBtn');
 const sections = document.querySelectorAll('.section');
 const steps = document.querySelectorAll('[data-step]')
 const confirmBtn = document.getElementById('submitBtn');
-
+const progressBar = document.getElementById('progressBar');
+const progresSteps = document.querySelectorAll('[data-step-indicator]');
+const proStep = document.querySelectorAll('.pro');
+const stepLabel = document.getElementById('stepLabel');
 let index = 0;
+
+
+function updateProgress() {
+
+    // Progress Bar
+    progressBar.classList.remove('w-1/3', 'w-2/3', 'w-full');
+
+    if (index === 0) {
+        progressBar.classList.add('w-1/3');
+    }
+    else if (index === 1) {
+        progressBar.classList.add('w-2/3');
+    }
+    else {
+        progressBar.classList.add('w-full');
+    }
+
+
+    progresSteps.forEach((step, i) => {
+
+        if (i <= index) {
+            step.classList.remove('text-brume-muted');
+            step.classList.add('text-brume-green');
+
+            proStep[i].classList.remove('bg-brume-line', 'text-brume-muted');
+            proStep[i].classList.add('bg-brume-green', 'text-white');
+
+        } else {
+            step.classList.remove('text-brume-green');
+            step.classList.add('text-brume-muted');
+
+            proStep[i].classList.remove('bg-brume-green', 'text-white');
+            proStep[i].classList.add('bg-brume-line', 'text-brume-muted');
+        }
+
+    });
+
+    stepLabel.textContent = `Étape ${index + 1} sur 3`;
+
+}
+
 
 suivantBtn.addEventListener('click', () => {
 
@@ -169,10 +213,12 @@ suivantBtn.addEventListener('click', () => {
         if (index >= steps.length) {
             index = steps.length - 1;
         }
+
         sections[index].classList.remove('hidden');
+        updateProgress()
 
         if (index === sections.length - 1) {
-          displayProduct();
+            displayProduct();
         }
     }
 
@@ -180,15 +226,11 @@ suivantBtn.addEventListener('click', () => {
         prevBtn.classList.remove('invisible');
 
     }
-
-    if (index >= 2) {
-        suivantBtn.classList.add('invisible');
-
-    }
-
     if (index == 2) {
+        suivantBtn.classList.add('invisible');
         confirmBtn.classList.remove('hidden');
     }
+
 
 })
 
@@ -201,9 +243,11 @@ prevBtn.addEventListener('click', () => {
     }
 
     sections[index].classList.remove('hidden');
+    updateProgress();
 
-    if (index >= 2) {
+    if (index === 2) {
         suivantBtn.classList.add('invisible');
+
     }
     else if (index == 0) {
         prevBtn.classList.add('invisible');
@@ -217,6 +261,9 @@ prevBtn.addEventListener('click', () => {
     if (index !== 2) {
         confirmBtn.classList.add('hidden');
     }
+
+
+
 
 })
 
