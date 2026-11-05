@@ -8,7 +8,6 @@ const promoPercent = document.getElementById('promoPercent');
 const promoEnd = document.getElementById('promoEnd');
 
 
-
 function validStep1() {
 
     let virifi = true;
@@ -76,8 +75,8 @@ function validStep1() {
 
     }
 
-    return virifi;
 
+    return virifi;
 
 
 }
@@ -171,6 +170,10 @@ suivantBtn.addEventListener('click', () => {
             index = steps.length - 1;
         }
         sections[index].classList.remove('hidden');
+
+        if (index === sections.length - 1) {
+          console.log(getProductData())
+        }
     }
 
     if (index > 0) {
@@ -186,7 +189,6 @@ suivantBtn.addEventListener('click', () => {
     if (index == 2) {
         confirmBtn.classList.remove('hidden');
     }
-
 
 })
 
@@ -229,9 +231,30 @@ promoToggleInput.addEventListener('change', () => {
 })
 
 
+function getProductData() {
 
+    const product = {
+        image: prodImageInput.value,
+        name: prodNameInput.value,
+        origin: document.getElementById('origin').value,
+        price: prodPriceInput.value,
+        promo: promoPercent.value,
+        description: prodDescriptionInput.value,
 
+        intensity: intensityValue.value,
 
+        temperature: document.querySelector('input[name="temperature"]:checked')?.value,
 
+        sizes: [...document.querySelectorAll('input[name="sizes"]:checked')]
+            .map(size => size.value),
 
+        milks: [...document.querySelectorAll('input[name="milks"]:checked')]
+            .map(milk => milk.value),
+
+        extras: [...document.querySelectorAll('input[name="extras"]:checked')]
+            .map(extra => extra.value)
+    };
+
+    return product;
+}
 
