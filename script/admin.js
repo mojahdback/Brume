@@ -6,6 +6,7 @@ const promoToggleInput = document.getElementById('promoToggle');
 const promoFields = document.getElementById('promoFields');
 const promoPercent = document.getElementById('promoPercent');
 const promoEnd = document.getElementById('promoEnd');
+const wizardForm = document.getElementById('wizardForm');
 
 
 function validStep1() {
@@ -333,6 +334,11 @@ confirmBtn.addEventListener('click', () => {
         icon: "success",
         confirmButtonText: "Parfait !",
         draggable: true
+    }).then(() => {
+        sections[index].classList.add('hidden');
+        index = 0 ; 
+        wizardForm.reset();
+        sections[index].classList.remove('hidden');
     });
     
 })
