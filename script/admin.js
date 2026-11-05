@@ -172,7 +172,7 @@ suivantBtn.addEventListener('click', () => {
         sections[index].classList.remove('hidden');
 
         if (index === sections.length - 1) {
-          console.log(getProductData())
+          displayProduct();
         }
     }
 
@@ -256,5 +256,25 @@ function getProductData() {
     };
 
     return product;
+}
+
+function displayProduct() {
+
+    const product = getProductData();
+
+    document.getElementById('recapImage').src = product.image;
+    document.getElementById('recapName').textContent = product.name;
+    document.getElementById('recapOrigin').textContent = product.origin;
+    document.getElementById('recapPrice').textContent = product.price;
+    document.getElementById('recapPromo').textContent = product.promo + "%";
+    document.getElementById('recapDescription').textContent = product.description;
+
+    document.getElementById('recapIntensity').textContent = product.intensity;
+    document.getElementById('recapTemperature').textContent = product.temperature;
+
+    document.getElementById('recapSizes').textContent = product.sizes.join(", ");
+    document.getElementById('recapMilks').textContent = product.milks.join(", ");
+    document.getElementById('recapExtras').textContent = product.extras.join(", ");
+
 }
 
